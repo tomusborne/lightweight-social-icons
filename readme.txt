@@ -1,14 +1,14 @@
 === Lightweight Social Icons ===
 Contributors: edge22
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=UVPTY2ZJA68S6
+Donate link: https://generatepress.com/ongoing-development
 Tags: social icons, social media, social networking, social profiles, social icon widget
 Requires at least: 4.0
-Tested up to: 4.5
-Stable tag: 0.8
+Tested up to: 4.6.1
+Stable tag: 0.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Looking to add simple social icons to your widget areas? Choose the size and color of your icons, and then choose from 42 different social profiles.
+Looking to add simple social icons to your widget areas? Choose the size and color of your icons, and then choose from 47 different social profiles.
 
 == Description ==
 
@@ -75,6 +75,11 @@ Check out GeneratePress, our awesome WordPress theme! (http://wordpress.org/them
 * Xing
 * Bandcamp
 * BitBucket
+* Snapchat
+* Trip Advisor
+* Houzz
+* Mixcloud
+* Last.fm
 
 == Installation ==
 
@@ -136,6 +141,19 @@ It allows you to add the widget to an arbitrary widget area, and then you can ca
 
 == Changelog ==
 
+= 0.9 =
+* Fix a couple stray PHP notices
+* New icon: Snapchat
+* New icon: Trip Advisor
+* New icon: Houzz
+* New icon: Mixcloud
+* New icon: Last.fm
+* Updated icon: Google+
+* Updated icon: Instagram
+* Remove query strings from font
+* Update text domain to use WP.org translations
+* Minify style.css
+
 = 0.8 =
 * Fix incompatibility with Custom Sidebars plugin
 * Hide empty fields by default - click "Add Icon" button to show more fields
@@ -181,6 +199,19 @@ It allows you to add the widget to an arbitrary widget area, and then you can ca
 * Initial release
 
 == Upgrade Notice ==
+
+= 0.9 =
+* Fix a couple stray PHP notices
+* New icon: Snapchat
+* New icon: Trip Advisor
+* New icon: Houzz
+* New icon: Mixcloud
+* New icon: Last.fm
+* Updated icon: Google+
+* Updated icon: Instagram
+* Remove query strings from font
+* Update text domain to use WP.org translations
+* Minify style.css
 
 = 0.8 =
 * Fix incompatibility with Custom Sidebars plugin

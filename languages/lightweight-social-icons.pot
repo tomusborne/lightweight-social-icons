@@ -1,7 +1,8 @@
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Lightweight Social Icons\n"
-"POT-Creation-Date: 2014-11-17 13:15-0800\n"
+"POT-Creation-Date: 2016-10-10 12:23-0700\n"
 "PO-Revision-Date: 2014-11-17 13:16-0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -9,203 +10,283 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.10\n"
+"X-Generator: Poedit 1.8.9\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
-"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: lightweight-social-icons.php:33
+#: lightweight-social-icons.php:35
 msgid "Lightweight Social Icons"
 msgstr ""
 
-#: lightweight-social-icons.php:35
+#: lightweight-social-icons.php:37
 msgid "Add social icons to your website."
 msgstr ""
 
-#: lightweight-social-icons.php:271
+#: lightweight-social-icons.php:185
 msgid "Title:"
 msgstr ""
 
-#: lightweight-social-icons.php:279
+#: lightweight-social-icons.php:193
 msgid "Icon Size"
 msgstr ""
 
-#: lightweight-social-icons.php:287
+#: lightweight-social-icons.php:201
 msgid "Border Radius"
 msgstr ""
 
-#: lightweight-social-icons.php:296
+#: lightweight-social-icons.php:210
 msgid "Background Color"
 msgstr ""
 
-#: lightweight-social-icons.php:303
+#: lightweight-social-icons.php:217
 msgid "Text Color"
 msgstr ""
 
-#: lightweight-social-icons.php:312
+#: lightweight-social-icons.php:226
 msgid "Background Hover Color"
 msgstr ""
 
-#: lightweight-social-icons.php:319
+#: lightweight-social-icons.php:233
 msgid "Text Hover Color"
 msgstr ""
 
-#: lightweight-social-icons.php:328
+#: lightweight-social-icons.php:242
 msgid "Open links in new window?"
 msgstr ""
 
-#: lightweight-social-icons.php:335
+#: lightweight-social-icons.php:249
 msgid "Enable tooltips?"
 msgstr ""
 
-#: lightweight-social-icons.php:341
+#: lightweight-social-icons.php:255
 msgid "Left"
 msgstr ""
 
-#: lightweight-social-icons.php:342
+#: lightweight-social-icons.php:256
 msgid "Center"
 msgstr ""
 
-#: lightweight-social-icons.php:343
+#: lightweight-social-icons.php:257
 msgid "Right"
 msgstr ""
 
-#: lightweight-social-icons.php:345
+#: lightweight-social-icons.php:259
 msgid "Alignment"
 msgstr ""
 
-#: lightweight-social-icons.php:446
+#: lightweight-social-icons.php:286
+msgid "Add Icon"
+msgstr ""
+
+#: lightweight-social-icons.php:381
 msgid "1 (123)-456-7890"
 msgstr ""
 
-#: lightweight-social-icons.php:447
-msgid "you@yourdomain.com"
+#: lightweight-social-icons.php:382
+msgid "you@yourdomain.com or http://"
 msgstr ""
 
-#: lightweight-social-icons.php:448
+#: lightweight-social-icons.php:383
 msgid "Username"
 msgstr ""
 
-#: lightweight-social-icons.php:525
-msgid "Facebook"
+#: lightweight-social-icons.php:524
+msgid "500px"
 msgstr ""
 
-#: lightweight-social-icons.php:529
-msgid "Twitter"
+#: lightweight-social-icons.php:528
+msgid "AngelList"
 msgstr ""
 
-#: lightweight-social-icons.php:533
-msgid "Google+"
+#: lightweight-social-icons.php:532
+msgid "Bandcamp"
 msgstr ""
 
-#: lightweight-social-icons.php:537
-msgid "Instagram"
+#: lightweight-social-icons.php:536
+msgid "Behance"
 msgstr ""
 
-#: lightweight-social-icons.php:541
-msgid "LinkedIn"
+#: lightweight-social-icons.php:540
+msgid "BitBucket"
 msgstr ""
 
-#: lightweight-social-icons.php:545
-msgid "Pinterest"
+#: lightweight-social-icons.php:544
+msgid "Blog Lovin'"
 msgstr ""
 
-#: lightweight-social-icons.php:549
-msgid "Flickr"
-msgstr ""
-
-#: lightweight-social-icons.php:553
-msgid "Email"
-msgstr ""
-
-#: lightweight-social-icons.php:557
-msgid "RSS"
-msgstr ""
-
-#: lightweight-social-icons.php:561
-msgid "Stumbleupon"
-msgstr ""
-
-#: lightweight-social-icons.php:565
-msgid "Tumblr"
-msgstr ""
-
-#: lightweight-social-icons.php:569
-msgid "Vimeo"
-msgstr ""
-
-#: lightweight-social-icons.php:573
-msgid "YouTube"
-msgstr ""
-
-#: lightweight-social-icons.php:577
-msgid "Github"
-msgstr ""
-
-#: lightweight-social-icons.php:581
-msgid "Soundcloud"
-msgstr ""
-
-#: lightweight-social-icons.php:585
-msgid "DeviantArt"
-msgstr ""
-
-#: lightweight-social-icons.php:589
-msgid "Phone"
-msgstr ""
-
-#: lightweight-social-icons.php:593
-msgid "Skype"
-msgstr ""
-
-#: lightweight-social-icons.php:597
-msgid "Dribbble"
-msgstr ""
-
-#: lightweight-social-icons.php:601
-msgid "Foursquare"
-msgstr ""
-
-#: lightweight-social-icons.php:605
-msgid "Reddit"
-msgstr ""
-
-#: lightweight-social-icons.php:609
-msgid "Spotify"
-msgstr ""
-
-#: lightweight-social-icons.php:613
-msgid "Digg"
-msgstr ""
-
-#: lightweight-social-icons.php:617
-msgid "Vine"
-msgstr ""
-
-#: lightweight-social-icons.php:621
+#: lightweight-social-icons.php:548
 msgid "Codepen"
 msgstr ""
 
-#: lightweight-social-icons.php:625
+#: lightweight-social-icons.php:552
+msgid "Contact"
+msgstr ""
+
+#: lightweight-social-icons.php:556
 msgid "Delicious"
 msgstr ""
 
-#: lightweight-social-icons.php:629
+#: lightweight-social-icons.php:560
+msgid "DeviantArt"
+msgstr ""
+
+#: lightweight-social-icons.php:564
+msgid "Digg"
+msgstr ""
+
+#: lightweight-social-icons.php:568
+msgid "Dribbble"
+msgstr ""
+
+#: lightweight-social-icons.php:572
+msgid "Dropbox"
+msgstr ""
+
+#: lightweight-social-icons.php:576
+msgid "Facebook"
+msgstr ""
+
+#: lightweight-social-icons.php:580
+msgid "Flickr"
+msgstr ""
+
+#: lightweight-social-icons.php:584
+msgid "Foursquare"
+msgstr ""
+
+#: lightweight-social-icons.php:588
+msgid "Github"
+msgstr ""
+
+#: lightweight-social-icons.php:592
+msgid "Google+"
+msgstr ""
+
+#: lightweight-social-icons.php:596
+msgid "Houzz"
+msgstr ""
+
+#: lightweight-social-icons.php:600
+msgid "Instagram"
+msgstr ""
+
+#: lightweight-social-icons.php:604
+msgid "iTunes"
+msgstr ""
+
+#: lightweight-social-icons.php:608
 msgid "JSFiddle"
 msgstr ""
 
-#: lightweight-social-icons.php:633
+#: lightweight-social-icons.php:612
+msgid "Last.fm"
+msgstr ""
+
+#: lightweight-social-icons.php:616
+msgid "LinkedIn"
+msgstr ""
+
+#: lightweight-social-icons.php:620
+msgid "Mixcloud"
+msgstr ""
+
+#: lightweight-social-icons.php:624
+msgid "Newsletter"
+msgstr ""
+
+#: lightweight-social-icons.php:628
+msgid "Phone"
+msgstr ""
+
+#: lightweight-social-icons.php:632
+msgid "Pinterest"
+msgstr ""
+
+#: lightweight-social-icons.php:636
+msgid "Reddit"
+msgstr ""
+
+#: lightweight-social-icons.php:640
+msgid "RSS"
+msgstr ""
+
+#: lightweight-social-icons.php:644
+msgid "Skype"
+msgstr ""
+
+#: lightweight-social-icons.php:648
+msgid "Snapchat"
+msgstr ""
+
+#: lightweight-social-icons.php:652
+msgid "Soundcloud"
+msgstr ""
+
+#: lightweight-social-icons.php:656
+msgid "Spotify"
+msgstr ""
+
+#: lightweight-social-icons.php:660
 msgid "Stack Overflow"
 msgstr ""
 
-#: lightweight-social-icons.php:637
+#: lightweight-social-icons.php:664
+msgid "Steam"
+msgstr ""
+
+#: lightweight-social-icons.php:668
+msgid "Stumbleupon"
+msgstr ""
+
+#: lightweight-social-icons.php:672
+msgid "Trip Advisor"
+msgstr ""
+
+#: lightweight-social-icons.php:676
+msgid "Tumblr"
+msgstr ""
+
+#: lightweight-social-icons.php:680
+msgid "Twitch"
+msgstr ""
+
+#: lightweight-social-icons.php:684
+msgid "Twitter"
+msgstr ""
+
+#: lightweight-social-icons.php:688
+msgid "Vimeo"
+msgstr ""
+
+#: lightweight-social-icons.php:692
+msgid "Vine"
+msgstr ""
+
+#: lightweight-social-icons.php:696
+msgid "VK"
+msgstr ""
+
+#: lightweight-social-icons.php:700
 msgid "WordPress"
 msgstr ""
 
-#: lightweight-social-icons.php:641
-msgid "Dropbox"
+#: lightweight-social-icons.php:704
+msgid "Xing"
+msgstr ""
+
+#: lightweight-social-icons.php:708
+msgid "Yelp"
+msgstr ""
+
+#: lightweight-social-icons.php:712
+msgid "YouTube"
+msgstr ""
+
+#: lightweight-social-icons.php:716
+msgid "Yahoo"
 msgstr ""
