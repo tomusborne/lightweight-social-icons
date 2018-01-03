@@ -347,13 +347,9 @@ class lsi_Widget extends WP_Widget {
 	 * Enqueue the admin scripts
 	 * @since 0.1
 	 */
-	function enqueue_admin_scripts( $hook ) {
-	
-		 if ( 'widgets.php' != $hook ) {
-			return;
-		}
-		wp_enqueue_style( 'wp-color-picker' );        
-		wp_enqueue_script( 'wp-color-picker' ); 
+	function enqueue_admin_scripts() {
+		wp_enqueue_style( 'wp-color-picker' );
+		wp_enqueue_script( 'wp-color-picker' );
 		wp_enqueue_script( 'lsi-script', plugin_dir_url( __FILE__ ) . 'js/scripts.js', array('jquery'), '1.0', true );
 		wp_enqueue_style( 'lsi-admin-script', plugin_dir_url( __FILE__ ) . 'css/admin.css' );
 		wp_localize_script( 'lsi-script', 'lsiPlaceholder', array(
@@ -713,4 +709,3 @@ function lsi_sanitize_hex_color( $color ) {
 		return $color;
 
 	return null;
-}
