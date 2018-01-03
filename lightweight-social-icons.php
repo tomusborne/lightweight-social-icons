@@ -41,8 +41,7 @@ class lsi_Widget extends WP_Widget {
 		$this->scripts['lsi_scripts'] = false;
 
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
-		add_action( 'admin_footer-widgets.php', array( $this, 'print_admin_scripts' ), 9999 );
-		add_action( 'customize_controls_print_footer_scripts', array( $this, 'print_admin_customizer_scripts' ), 9999 );
+		add_action( 'admin_footer-widgets.php', array( $this, 'print_scripts' ), 9999 );
 	}
 
 	/**
@@ -79,20 +78,20 @@ class lsi_Widget extends WP_Widget {
 			$input = 'input' . $count++;
 			$select = 'select' . $count++;
 
-			$id = (!empty( $instance[$option['id']] ) ) ? $instance[$option['id']] : '';
-			$name = (!empty( $instance[$select] ) ) ? $instance[$select] : '';
-			$value = (!empty( $instance[$input] ) ) ? $instance[$input] : '';
+			$id = ( ! empty( $instance[$option['id']] ) ) ? $instance[$option['id']] : '';
+			$name = ( ! empty( $instance[$select] ) ) ? $instance[$select] : '';
+			$value = ( ! empty( $instance[$input] ) ) ? $instance[$input] : '';
 
-			if ( !empty( $value ) && !empty( $name ) ) :
-				if ( is_email( $value ) ) :
+			if ( ! empty( $value ) && ! empty( $name ) ) {
+				if ( is_email( $value ) ) {
 					$the_value = 'mailto:' . $value;
-				elseif ( 'phone' == $name ) :
+				} elseif ( 'phone' == $name ) {
 					$the_value = 'tel:' . $value;
-				elseif ( 'skype' == $name ) :
+				} elseif ( 'skype' == $name ) {
 					$the_value = 'skype:' . $value;
-				else:
+				} else {
 					$the_value = esc_url( $value );
-				endif;
+				}
 
 				$show_tooltip = ( ! empty( $tooltip ) ) ? 'tooltip' : '';
 				$rel_attribute = apply_filters( 'lsi_icon_rel_attribute','rel="nofollow"' );
@@ -110,40 +109,41 @@ class lsi_Widget extends WP_Widget {
 					$accessibility
 				);
 
-			endif;
+			}
 		}
-		if ( $output ) :
+
+		if ( $output ) {
 			printf(
 				'<ul class="lsi-social-icons icon-set-%1$s" style="text-align: %3$s">%2$s</ul>',
 				$unique_id,
 				apply_filters( 'lsi_icon_output', $output ),
 				$alignment
 			);
-		endif;
+		}
 
-		global $css;
-		$css = '
-			.icon-set-' . $unique_id . ' a,
-			.icon-set-' . $unique_id . ' a:visited,
-			.icon-set-' . $unique_id . ' a:focus {
-				border-radius: ' . $border_radius . 'px;
-				background: ' . $background . ' !important;
-				color: ' . $color . ' !important;
-				font-size: ' . $font_size . 'px !important;
+		$css = "#{$unique_id} .icon-set-{$unique_id} a,
+			#{$unique_id} .icon-set-{$unique_id} a:visited,
+			#{$unique_id} .icon-set-{$unique_id} a:focus {
+				border-radius: {$border_radius}px;
+				background: {$background};
+				color: {$color};
+				font-size: {$font_size}px;
 			}
-			.icon-set-' . $unique_id . ' a:hover {
-				background: ' . $background_hover . ' !important;
-				color: ' . $color_hover . ' !important;
-			}';
-			wp_enqueue_style( 'lsi-style', plugin_dir_url( __FILE__ ) . 'css/style-min.css', array(), LSI_VERSION, 'all' );
-			wp_add_inline_style( 'lsi-style', $css, 99 );
-		if ( !empty( $tooltip ) ) :
+
+			#{$unique_id} .icon-set-{$unique_id} a:hover {
+				background: {$background_hover};
+				color: {$color_hover};
+			}";
+
+		wp_enqueue_style( 'lsi-style', plugin_dir_url( __FILE__ ) . 'css/style-min.css', array(), LSI_VERSION, 'all' );
+		wp_add_inline_style( 'lsi-style', $css, 99 );
+
+		if ( ! empty( $tooltip ) ) {
 			wp_enqueue_script( 'lsi-tooltipster', plugin_dir_url( __FILE__ ) . 'js/jquery.tooltipster.min.js', array('jquery'), LSI_VERSION, true );
-		endif;
+		}
 
 		echo $args['after_widget'];
 	}
-
 
 	/**
 	 * Build the actual widget in the Dashboard
@@ -178,8 +178,8 @@ class lsi_Widget extends WP_Widget {
 
 		?>
 		<p>
-		<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:','lightweight-social-icons' ); ?></label>
-		<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
+			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:','lightweight-social-icons' ); ?></label>
+			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
 		</p>
 
 		<p class="lsi-admin-label-left">
@@ -244,28 +244,29 @@ class lsi_Widget extends WP_Widget {
 			</select>
 			<?php esc_html_e( 'Alignment', 'lightweight-social-icons' ); ?>
 		</p>
-		<div class="lsi-divider"></div>
+
+		<hr />
+
 		<ul class="social-icon-fields" style="margin-left: 0;">
-		<?php
-		$count = 0;
-		foreach ( $options as $option ) {
+			<?php
+			$count = 0;
+			foreach ( $options as $option ) {
 
-			$input = 'input' . $count++;
-			$select = 'select' . $count++;
-			?>
-			<li class="lsi-container" style="display: flex;">
-				<select class="left choose-icon" name="<?php echo $this->get_field_name( $select );?>" id="<?php echo $this->get_field_id( $select );?>">
-					<option value=""></option>
-					<?php foreach ( $options as $option ) {  ?>
-						<option value="<?php echo $option['id']; ?>" <?php selected( $instance[$select], $option['id'] ); ?>><?php echo $option['name']; ?></option>
-					<?php } ?>
-				</select>
-				<input class="widefat right social-item" id="<?php echo $this->get_field_id( $input ); ?>" name="<?php echo $this->get_field_name( $input ); ?>" type="text" value="<?php echo esc_attr( $instance[$input] ); ?>">
+				$input = 'input' . $count++;
+				$select = 'select' . $count++;
+				?>
+				<li class="lsi-container" style="display: flex;">
+					<select class="left choose-icon" name="<?php echo $this->get_field_name( $select );?>" id="<?php echo $this->get_field_id( $select );?>">
+						<option value=""></option>
+						<?php foreach ( $options as $option ) {  ?>
+							<option value="<?php echo $option['id']; ?>" <?php selected( $instance[$select], $option['id'] ); ?>><?php echo $option['name']; ?></option>
+						<?php } ?>
+					</select>
+					<input class="widefat right social-item" id="<?php echo $this->get_field_id( $input ); ?>" name="<?php echo $this->get_field_name( $input ); ?>" type="text" value="<?php echo esc_attr( $instance[$input] ); ?>">
 
-			</li>
-		<?php
-		}
-		?>
+				</li>
+			<?php } ?>
+
 			<span style="float:right;font-size: 90%;padding-top:3px;">
 				Developed by: <a href="https://generatepress.com" target="_blank">GeneratePress</a>
 			</span>
@@ -273,16 +274,34 @@ class lsi_Widget extends WP_Widget {
 		</ul>
 
 		<script>
-			jQuery(document).ready(function () {
-					jQuery( '.social-item' ).each( function( index ) {
-						if( ! jQuery(this).val() ) {
-							jQuery( this ).parent().hide();
+			jQuery(document).ready(function ($) {
+					$( '.social-item' ).each( function( index ) {
+						if( ! $(this).val() ) {
+							$( this ).parent().hide();
 						}
+					});
+
+					$('.lsi-container .choose-icon').each(function(){
+						$(this).change(function() {
+							var select = $(this);
+
+							if ( $(this).attr('value') == 'phone' ) {
+								$(this).next('input').attr('placeholder', '<?php _e( '1 (123)-456-7890','lightweight-social-icons'); ?>');
+							} else if ( $(this).attr('value') == 'email' ) {
+								$(this).next().attr('placeholder', '<?php _e( 'you@yourdomain.com or http://', 'lightweight-social-icons' ); ?>');
+							} else if ( $(this).attr('value') == 'skype' ) {
+								$(this).next().attr('placeholder', '<?php _e( 'Username', 'lightweight-social-icons' ); ?>');
+							}else if ( $(this).attr('value') == '' ) {
+								$(this).next().attr('placeholder','');
+							} else {
+								$(this).next().attr('placeholder','http://');
+							}
+						});
 					});
 				});
 
 				function lsiAddIcon(elem) {
-				   jQuery( elem ).siblings('li:hidden:first').show();
+				   jQuery( elem ).siblings('li:hidden:first').css( 'display', 'flex' );
 			   }
 		</script>
 		<?php
@@ -314,27 +333,19 @@ class lsi_Widget extends WP_Widget {
 
 			$instance[$select] = strip_tags( $new_instance[$select] );
 
-			// If Skype is set, strip tags
-			if ( 'skype' == $new_instance[$select] ) :
+			if ( 'skype' == $new_instance[$select] ) {
 				$instance[$input] = strip_tags( $new_instance[$input] );
-
-			// If Phone is set, strip tags
-			elseif ( 'phone' == $new_instance[$select] ) :
+			} elseif ( 'phone' == $new_instance[$select] ) {
 				$instance[$input] = strip_tags( $new_instance[$input] );
-
-			// If Email is set, sanitize the address
-			elseif ( 'email' == $new_instance[$select] ) :
-
+			} elseif ( 'email' == $new_instance[$select] ) {
 				if ( is_email( $new_instance[$input] ) ) {
 					$instance[$input] = sanitize_email( $new_instance[$input] );
 				} else {
 					$instance[$input] = esc_url( $new_instance[$input] );
 				}
-
-			// For everything else, sanitize the URL
-			else :
+			} else {
 				$instance[$input] = esc_url( $new_instance[$input] );
-			endif;
+			}
 
 		}
 
@@ -346,115 +357,47 @@ class lsi_Widget extends WP_Widget {
 	 * @since 0.1
 	 */
 	function enqueue_admin_scripts() {
+		$screen = get_current_screen();
+		if ( 'widgets' !== $screen->base ) {
+			return;
+		}
+
 		wp_enqueue_style( 'wp-color-picker' );
 		wp_enqueue_script( 'wp-color-picker' );
-		wp_enqueue_script( 'lsi-script', plugin_dir_url( __FILE__ ) . 'js/scripts.js', array('jquery'), '1.0', true );
-
-		wp_localize_script( 'lsi-script', 'lsiPlaceholder', array(
-			'phone'  => __( '1 (123)-456-7890','lightweight-social-icons'),
-			'email' => __( 'you@yourdomain.com or http://', 'lightweight-social-icons' ),
-			'username' => __( 'Username', 'lightweight-social-icons' ),
-		) );
+		wp_enqueue_script( 'underscore' );
 	}
 
-	public function print_admin_scripts() {
-	 ?>
-		<script>
-			jQuery(document).ready(function($){
-				function lsi_updateColorPickers(){
-
-					$('#widgets-right .color-picker, #accordion-panel-widgets .color-picker').each(function(){
-						$(this).wpColorPicker({
-							// you can declare a default color here,
-							// or in the data-default-color attribute on the input
-							defaultColor: false,
-							// a callback to fire whenever the color changes to a valid color
-							change: function(event, ui){},
-							// a callback to fire when the input is emptied or an invalid color
-							clear: function() {},
-							// hide the color picker controls on load
-							hide: true,
-						});
-					});
-				}
-				lsi_updateColorPickers();
-
-				$(document).ajaxSuccess(function(e, xhr, settings) {
-					if (typeof settings.data.search !== 'undefined' && $.isFunction(settings.data.search)) {
-						if(settings.data.search('action=save-widget') != -1 ) {
-							$('.color-field .wp-picker-container').remove();
-							lsi_updateColorPickers();
-						}
-					}
-				});
-			});
-
-		</script>
-		<?php
-	}
-
-	public function print_admin_customizer_scripts() {
-	 ?>
+	public function print_scripts() {
+		?>
 		<script>
 			( function( $ ){
-				function lsi_initColorPicker( widget ) {
+				function initColorPicker( widget ) {
 					widget.find( '.color-picker' ).wpColorPicker( {
-							change: _.throttle( function() { // For Customizer
-									$(this).trigger( 'change' );
-							}, 3000 )
+						change: _.throttle( function() { // For Customizer
+							$(this).trigger( 'change' );
+						}, 3000 )
 					});
 				}
 
-				function lsi_onFormUpdate( event, widget ) {
-					lsi_initColorPicker( widget );
+				function onFormUpdate( event, widget ) {
+					initColorPicker( widget );
 				}
 
-				$( document ).on( 'widget-added widget-updated', lsi_onFormUpdate );
+				$( document ).on( 'widget-added widget-updated', onFormUpdate );
 
 				$( document ).ready( function() {
-					$( '#accordion-panel-widgets .widget:has(.color-picker)' ).each( function () {
-							lsi_initColorPicker( $( this ) );
+					$( '#widgets-right .widget:has(.color-picker)' ).each( function () {
+						initColorPicker( $( this ) );
 					} );
 				} );
 			}( jQuery ) );
-
-			jQuery(document).ready(function($){
-				function lsi_updatePlaceholders(){
-					$('#accordion-panel-widgets .choose-icon').each(function(){
-						jQuery(this).change(function() {
-							var select = jQuery(this);
-
-							if ( jQuery(this).attr('value') == 'phone' ) {
-								jQuery(this).next('input').attr('placeholder',lsiPlaceholder.phone);
-							} else if ( jQuery(this).attr('value') == 'email' ) {
-								jQuery(this).next().attr('placeholder',lsiPlaceholder.email);
-							} else if ( jQuery(this).attr('value') == 'skype' ) {
-								jQuery(this).next().attr('placeholder',lsiPlaceholder.username);
-							}else if ( jQuery(this).attr('value') == '' ) {
-								jQuery(this).next().attr('placeholder','');
-							} else {
-								jQuery(this).next().attr('placeholder','http://');
-							}
-						});
-					});
-				}
-				lsi_updatePlaceholders();
-				$(document).ajaxSuccess(function(e, xhr, settings) {
-					if (typeof settings.data.search !== 'undefined' && $.isFunction(settings.data.search)) {
-						if(settings.data.search('action=save-widget') != -1 ) {
-							lsi_updatePlaceholders();
-						}
-					}
-				});
-
-				$( document ).on( 'widget-added widget-updated', lsi_updatePlaceholders );
-			});
 		</script>
 		<?php
 	}
 
 }
 
+add_action( 'widgets_init', 'lsi_register_widget' );
 /**
  * Register the widget
  * @since 0.1
@@ -462,14 +405,12 @@ class lsi_Widget extends WP_Widget {
 function lsi_register_widget() {
     register_widget( 'lsi_Widget' );
 }
-add_action( 'widgets_init', 'lsi_register_widget' );
 
 /**
  * Set the widget option defaults
  * @since 0.1
  */
-function lsi_option_defaults()
-{
+function lsi_option_defaults() {
 	$defaults = array(
 		'title' => '',
 		'new_window' => '',
@@ -699,12 +640,14 @@ function lsi_icons( $options = '' ) {
  * @since 0.1
  */
 function lsi_sanitize_hex_color( $color ) {
-	if ( '' === $color )
+	if ( '' === $color ) {
 		return '';
+	}
 
 	// 3 or 6 hex digits, or the empty string.
-	if ( preg_match('|^#([A-Fa-f0-9]{3}){1,2}$|', $color ) )
+	if ( preg_match('|^#([A-Fa-f0-9]{3}){1,2}$|', $color ) ) {
 		return $color;
+	}
 
 	return null;
 }

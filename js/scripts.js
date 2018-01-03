@@ -3,7 +3,7 @@ jQuery(document).ready(function($) {
 		$('#widgets-right .choose-icon').each(function(){
 			jQuery(this).change(function() {
 				var select = jQuery(this);
-							
+
 				if ( jQuery(this).attr('value') == 'phone' ) {
 					jQuery(this).next('input').attr('placeholder',lsiPlaceholder.phone);
 				} else if ( jQuery(this).attr('value') == 'email' ) {
@@ -16,16 +16,16 @@ jQuery(document).ready(function($) {
 					jQuery(this).next().attr('placeholder','http://');
 				}
 			});
-		}); 
+		});
 	}
-	lsi_updatePlaceholders();   
+	lsi_updatePlaceholders();
 	$(document).ajaxSuccess(function(e, xhr, settings) {
 		if (typeof settings.data.search !== 'undefined' && $.isFunction(settings.data.search)) {
-			if(settings.data.search('action=save-widget') != -1 ) {  
-				lsi_updatePlaceholders();       
+			if(settings.data.search('action=save-widget') != -1 ) {
+				lsi_updatePlaceholders();
 			}
 		}
 	});
-	
+
 	$( document ).on( 'widget-added widget-updated', lsi_updatePlaceholders );
 });
