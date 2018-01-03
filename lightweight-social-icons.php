@@ -185,7 +185,7 @@ class lsi_Widget extends WP_Widget {
 		<p class="lsi-admin-label-left">
 			<label>
 				<input class="widefat" style="max-width:65px;" id="<?php echo $this->get_field_id( 'font_size' ); ?>" name="<?php echo $this->get_field_name( 'font_size' ); ?>" type="text" value="<?php echo intval( $font_size ); ?>">
-				<span class="pixels">px</span>
+				<span class="pixels" style="display: inline-block;background:#efefef;position:relative;margin-left: -33px;padding: 3px 7px;">px</span>
 				<?php esc_html_e( 'Icon Size', 'lightweight-social-icons' ); ?>
 			</label>
 		</p>
@@ -193,36 +193,34 @@ class lsi_Widget extends WP_Widget {
 		<p class="lsi-admin-label-right">
 			<label>
 				<input class="widefat" style="max-width:65px;" id="<?php echo $this->get_field_id( 'border_radius' ); ?>" name="<?php echo $this->get_field_name( 'border_radius' ); ?>" type="text" value="<?php echo intval( $border_radius ); ?>">
-				<span class="pixels">px</span>
+				<span class="pixels" style="display: inline-block;background:#efefef;position:relative;margin-left: -33px;padding: 3px 7px;">px</span>
 				<?php esc_html_e( 'Border Radius', 'lightweight-social-icons' ); ?>
 			</label>
 		</p>
 
-		<div class="lsi-divider"></div>
+		<hr />
 
 		<p class="lsi-admin-label-left">
 			<input class="widefat color-picker" style="max-width:75px;" id="<?php echo $this->get_field_id( 'background' ); ?>" name="<?php echo $this->get_field_name( 'background' ); ?>" type="text" value="<?php echo $background; ?>">
-			<label>	<?php esc_html_e( 'Background Color', 'lightweight-social-icons' ); ?></label>
+			<label style="font-size: 90%;opacity: 0.8"><?php esc_html_e( 'Background Color', 'lightweight-social-icons' ); ?></label>
 		</p>
 
 		<p class="lsi-admin-label-right">
 			<input class="widefat color-picker" style="max-width:75px;" id="<?php echo $this->get_field_id( 'color' ); ?>" name="<?php echo $this->get_field_name( 'color' ); ?>" type="text" value="<?php echo $color; ?>">
-			<label><?php esc_html_e( 'Text Color', 'lightweight-social-icons' ); ?></label>
+			<label style="font-size: 90%;opacity: 0.8"><?php esc_html_e( 'Text Color', 'lightweight-social-icons' ); ?></label>
 		</p>
-
-		<div class="lsi-divider"></div>
 
 		<p class="lsi-admin-label-left">
 			<input class="widefat color-picker" style="max-width:75px;" id="<?php echo $this->get_field_id( 'background_hover' ); ?>" name="<?php echo $this->get_field_name( 'background_hover' ); ?>" type="text" value="<?php echo $background_hover; ?>">
-			<label><?php esc_html_e( 'Background Hover Color', 'lightweight-social-icons' ); ?></label>
+			<label style="font-size: 90%;opacity: 0.8"><?php esc_html_e( 'Background Hover Color', 'lightweight-social-icons' ); ?></label>
 		</p>
 
 		<p class="lsi-admin-label-right">
 			<input class="widefat color-picker" style="max-width:75px;" id="<?php echo $this->get_field_id( 'color_hover' ); ?>" name="<?php echo $this->get_field_name( 'color_hover' ); ?>" type="text" value="<?php echo $color_hover; ?>">
-			<label><?php esc_html_e( 'Text Hover Color', 'lightweight-social-icons' ); ?></label>
+			<label style="font-size: 90%;opacity: 0.8"><?php esc_html_e( 'Text Hover Color', 'lightweight-social-icons' ); ?></label>
 		</p>
 
-		<div class="lsi-divider"></div>
+		<hr />
 
 		<p>
 			<label>
@@ -255,7 +253,7 @@ class lsi_Widget extends WP_Widget {
 			$input = 'input' . $count++;
 			$select = 'select' . $count++;
 			?>
-			<li class="lsi-container">
+			<li class="lsi-container" style="display: flex;">
 				<select class="left choose-icon" name="<?php echo $this->get_field_name( $select );?>" id="<?php echo $this->get_field_id( $select );?>">
 					<option value=""></option>
 					<?php foreach ( $options as $option ) {  ?>
@@ -351,7 +349,7 @@ class lsi_Widget extends WP_Widget {
 		wp_enqueue_style( 'wp-color-picker' );
 		wp_enqueue_script( 'wp-color-picker' );
 		wp_enqueue_script( 'lsi-script', plugin_dir_url( __FILE__ ) . 'js/scripts.js', array('jquery'), '1.0', true );
-		wp_enqueue_style( 'lsi-admin-script', plugin_dir_url( __FILE__ ) . 'css/admin.css' );
+
 		wp_localize_script( 'lsi-script', 'lsiPlaceholder', array(
 			'phone'  => __( '1 (123)-456-7890','lightweight-social-icons'),
 			'email' => __( 'you@yourdomain.com or http://', 'lightweight-social-icons' ),
