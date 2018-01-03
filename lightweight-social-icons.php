@@ -245,7 +245,7 @@ class lsi_Widget extends WP_Widget {
 			<?php esc_html_e( 'Alignment', 'lightweight-social-icons' ); ?>
 		</p>
 		<div class="lsi-divider"></div>
-		<ul class="social-icon-fields">
+		<ul class="social-icon-fields" style="margin-left: 0;">
 		<?php
 		$count = 0;
 		foreach ( $options as $option ) {
