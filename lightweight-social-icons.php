@@ -201,33 +201,25 @@ class lsi_Widget extends WP_Widget {
 		<div class="lsi-divider"></div>
 
 		<p class="lsi-admin-label-left">
-			<label>
-				<input class="widefat color-picker" style="max-width:75px;" id="<?php echo $this->get_field_id( 'background' ); ?>" name="<?php echo $this->get_field_name( 'background' ); ?>" type="text" value="<?php echo $background; ?>"> 
-				<br /><?php esc_html_e( 'Background Color', 'lightweight-social-icons' ); ?>
-			</label>
+			<input class="widefat color-picker" style="max-width:75px;" id="<?php echo $this->get_field_id( 'background' ); ?>" name="<?php echo $this->get_field_name( 'background' ); ?>" type="text" value="<?php echo $background; ?>">
+			<label>	<?php esc_html_e( 'Background Color', 'lightweight-social-icons' ); ?></label>
 		</p>
 
 		<p class="lsi-admin-label-right">
-			<label>
-				<input class="widefat color-picker" style="max-width:75px;" id="<?php echo $this->get_field_id( 'color' ); ?>" name="<?php echo $this->get_field_name( 'color' ); ?>" type="text" value="<?php echo $color; ?>"> 
-				<br /><?php esc_html_e( 'Text Color', 'lightweight-social-icons' ); ?>
-			</label>
+			<input class="widefat color-picker" style="max-width:75px;" id="<?php echo $this->get_field_id( 'color' ); ?>" name="<?php echo $this->get_field_name( 'color' ); ?>" type="text" value="<?php echo $color; ?>">
+			<label><?php esc_html_e( 'Text Color', 'lightweight-social-icons' ); ?></label>
 		</p>
 
 		<div class="lsi-divider"></div>
 
 		<p class="lsi-admin-label-left">
-			<label>
-				<input class="widefat color-picker" style="max-width:75px;" id="<?php echo $this->get_field_id( 'background_hover' ); ?>" name="<?php echo $this->get_field_name( 'background_hover' ); ?>" type="text" value="<?php echo $background_hover; ?>"> 
-				<br /><?php esc_html_e( 'Background Hover Color', 'lightweight-social-icons' ); ?>
-			</label>
+			<input class="widefat color-picker" style="max-width:75px;" id="<?php echo $this->get_field_id( 'background_hover' ); ?>" name="<?php echo $this->get_field_name( 'background_hover' ); ?>" type="text" value="<?php echo $background_hover; ?>">
+			<label><?php esc_html_e( 'Background Hover Color', 'lightweight-social-icons' ); ?></label>
 		</p>
 
 		<p class="lsi-admin-label-right">
-			<label>
-				<input class="widefat color-picker" style="max-width:75px;" id="<?php echo $this->get_field_id( 'color_hover' ); ?>" name="<?php echo $this->get_field_name( 'color_hover' ); ?>" type="text" value="<?php echo $color_hover; ?>"> 
-				<br /><?php esc_html_e( 'Text Hover Color', 'lightweight-social-icons' ); ?>
-			</label>
+			<input class="widefat color-picker" style="max-width:75px;" id="<?php echo $this->get_field_id( 'color_hover' ); ?>" name="<?php echo $this->get_field_name( 'color_hover' ); ?>" type="text" value="<?php echo $color_hover; ?>">
+			<label><?php esc_html_e( 'Text Hover Color', 'lightweight-social-icons' ); ?></label>
 		</p>
 
 		<div class="lsi-divider"></div>
