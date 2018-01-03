@@ -2,9 +2,9 @@
 Contributors: edge22
 Donate link: https://generatepress.com/ongoing-development
 Tags: social icons, social media, social networking, social profiles, social icon widget
-Requires at least: 4.0
-Tested up to: 4.6.1
-Stable tag: 0.9
+Requires at least: 4.5
+Tested up to: 4.9
+Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -141,6 +141,13 @@ It allows you to add the widget to an arbitrary widget area, and then you can ca
 
 == Changelog ==
 
+= 1.0 =
+* Code cleanup
+* Fix widget controls in the Customizer
+* Fix compatibility error with Site Origin Page Builder
+* Fix color picker labels
+* Use flexbox for admin controls
+
 = 0.9 =
 * Fix a couple stray PHP notices
 * New icon: Snapchat
@@ -199,6 +206,11 @@ It allows you to add the widget to an arbitrary widget area, and then you can ca
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.0 =
+* Code cleanup
+* Fix compatibility error with Site Origin Page Builder
+* Fix color picker labels
 
 = 0.9 =
 * Fix a couple stray PHP notices
