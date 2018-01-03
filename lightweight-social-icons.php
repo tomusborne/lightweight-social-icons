@@ -709,3 +709,4 @@ function lsi_sanitize_hex_color( $color ) {
 		return $color;
 
 	return null;
+}
