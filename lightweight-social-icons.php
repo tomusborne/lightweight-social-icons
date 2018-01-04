@@ -20,22 +20,20 @@ add_action( 'plugins_loaded', 'lsi_load_textdomain' );
  * @since 0.1
  */
 function lsi_load_textdomain() {
-  load_plugin_textdomain( 'lightweight-social-icons' );
+	load_plugin_textdomain( 'lightweight-social-icons' );
 }
 
 class lsi_Widget extends WP_Widget {
 
 	/**
-	 * Register the widget
+	 * Register the widget.
+	 *
 	 * @since 0.1
 	 */
 	function __construct() {
 		parent::__construct(
-			'lsi_Widget', // Base ID
-			__('Lightweight Social Icons', 'lightweight-social-icons'), // Name
-			array(
-				'description' => __( 'Add social icons to your website.', 'lightweight-social-icons' ),
-			)
+			'lsi_Widget',
+			esc_html__( 'Lightweight Social Icons', 'lightweight-social-icons' )
 		);
 
 		$this->scripts['lsi_scripts'] = false;
@@ -46,16 +44,16 @@ class lsi_Widget extends WP_Widget {
 
 	/**
 	 * Front-end display of widget.
+	 *
 	 * @since 0.1
 	 */
 	public function widget( $args, $instance ) {
-
 		$this->scripts['lsi_scripts'] = true;
 
 		$title = apply_filters( 'widget_title', $instance['title'] );
 		$options = lsi_icons();
 		$defaults = lsi_option_defaults();
-		$unique_id = $args['widget_id'];
+		$unique_id = esc_attr( $args['widget_id'] );
 		$output = '';
 
 		echo $args['before_widget'];
@@ -125,21 +123,21 @@ class lsi_Widget extends WP_Widget {
 			#{$unique_id} .icon-set-{$unique_id} a:visited,
 			#{$unique_id} .icon-set-{$unique_id} a:focus {
 				border-radius: {$border_radius}px;
-				background: {$background};
-				color: {$color};
-				font-size: {$font_size}px;
+				background: {$background} !important;
+				color: {$color} !important;
+				font-size: {$font_size}px !important;
 			}
 
 			#{$unique_id} .icon-set-{$unique_id} a:hover {
-				background: {$background_hover};
-				color: {$color_hover};
+				background: {$background_hover} !important;
+				color: {$color_hover} !important;
 			}";
 
 		wp_enqueue_style( 'lsi-style', plugin_dir_url( __FILE__ ) . 'css/style-min.css', array(), LSI_VERSION, 'all' );
 		wp_add_inline_style( 'lsi-style', $css, 99 );
 
 		if ( ! empty( $tooltip ) ) {
-			wp_enqueue_script( 'lsi-tooltipster', plugin_dir_url( __FILE__ ) . 'js/jquery.tooltipster.min.js', array('jquery'), LSI_VERSION, true );
+			wp_enqueue_script( 'lsi-tooltipster', plugin_dir_url( __FILE__ ) . 'js/jquery.tooltipster.min.js', array( 'jquery' ), LSI_VERSION, true );
 		}
 
 		echo $args['after_widget'];
@@ -182,7 +180,7 @@ class lsi_Widget extends WP_Widget {
 			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
 		</p>
 
-		<p class="lsi-admin-label-left">
+		<p>
 			<label>
 				<input class="widefat" style="max-width:65px;" id="<?php echo $this->get_field_id( 'font_size' ); ?>" name="<?php echo $this->get_field_name( 'font_size' ); ?>" type="text" value="<?php echo intval( $font_size ); ?>">
 				<span class="pixels" style="display: inline-block;background:#efefef;position:relative;margin-left: -33px;padding: 3px 7px;">px</span>
@@ -190,7 +188,7 @@ class lsi_Widget extends WP_Widget {
 			</label>
 		</p>
 
-		<p class="lsi-admin-label-right">
+		<p>
 			<label>
 				<input class="widefat" style="max-width:65px;" id="<?php echo $this->get_field_id( 'border_radius' ); ?>" name="<?php echo $this->get_field_name( 'border_radius' ); ?>" type="text" value="<?php echo intval( $border_radius ); ?>">
 				<span class="pixels" style="display: inline-block;background:#efefef;position:relative;margin-left: -33px;padding: 3px 7px;">px</span>
@@ -200,22 +198,22 @@ class lsi_Widget extends WP_Widget {
 
 		<hr />
 
-		<p class="lsi-admin-label-left">
+		<p>
 			<input class="widefat color-picker" style="max-width:75px;" id="<?php echo $this->get_field_id( 'background' ); ?>" name="<?php echo $this->get_field_name( 'background' ); ?>" type="text" value="<?php echo $background; ?>">
 			<label style="font-size: 90%;opacity: 0.8"><?php esc_html_e( 'Background Color', 'lightweight-social-icons' ); ?></label>
 		</p>
 
-		<p class="lsi-admin-label-right">
+		<p>
 			<input class="widefat color-picker" style="max-width:75px;" id="<?php echo $this->get_field_id( 'color' ); ?>" name="<?php echo $this->get_field_name( 'color' ); ?>" type="text" value="<?php echo $color; ?>">
 			<label style="font-size: 90%;opacity: 0.8"><?php esc_html_e( 'Text Color', 'lightweight-social-icons' ); ?></label>
 		</p>
 
-		<p class="lsi-admin-label-left">
+		<p>
 			<input class="widefat color-picker" style="max-width:75px;" id="<?php echo $this->get_field_id( 'background_hover' ); ?>" name="<?php echo $this->get_field_name( 'background_hover' ); ?>" type="text" value="<?php echo $background_hover; ?>">
 			<label style="font-size: 90%;opacity: 0.8"><?php esc_html_e( 'Background Hover Color', 'lightweight-social-icons' ); ?></label>
 		</p>
 
-		<p class="lsi-admin-label-right">
+		<p>
 			<input class="widefat color-picker" style="max-width:75px;" id="<?php echo $this->get_field_id( 'color_hover' ); ?>" name="<?php echo $this->get_field_name( 'color_hover' ); ?>" type="text" value="<?php echo $color_hover; ?>">
 			<label style="font-size: 90%;opacity: 0.8"><?php esc_html_e( 'Text Hover Color', 'lightweight-social-icons' ); ?></label>
 		</p>
@@ -238,9 +236,9 @@ class lsi_Widget extends WP_Widget {
 
 		<p>
 			<select name="<?php echo $this->get_field_name( 'alignment' );?>" id="<?php echo $this->get_field_id( 'alignment' );?>">
-				<option value="left" <?php selected( $instance['alignment'], 'left' ); ?>><?php _e('Left','lightweight-social-icons');?></option>
-				<option value="center" <?php selected( $instance['alignment'], 'center' ); ?>><?php _e('Center','lightweight-social-icons');?></option>
-				<option value="right" <?php selected( $instance['alignment'], 'right' ); ?>><?php _e('Right','lightweight-social-icons');?></option>
+				<option value="left" <?php selected( $instance['alignment'], 'left' ); ?>><?php _e( 'Left', 'lightweight-social-icons' );?></option>
+				<option value="center" <?php selected( $instance['alignment'], 'center' ); ?>><?php _e( 'Center', 'lightweight-social-icons' );?></option>
+				<option value="right" <?php selected( $instance['alignment'], 'right' ); ?>><?php _e( 'Right', 'lightweight-social-icons' );?></option>
 			</select>
 			<?php esc_html_e( 'Alignment', 'lightweight-social-icons' ); ?>
 		</p>
@@ -270,7 +268,7 @@ class lsi_Widget extends WP_Widget {
 			<span style="float:right;font-size: 90%;padding-top:3px;">
 				Developed by: <a href="https://generatepress.com" target="_blank">GeneratePress</a>
 			</span>
-			<button onclick="event.preventDefault();lsiAddIcon(this)" class="button add-lsi-row <?php echo $id;?>" data-id="<?php echo $id;?>" style="margin-bottom:10px;"><?php _e( 'Add Icon','lsi' ); ?></button>
+			<button onclick="event.preventDefault();lsiAddIcon(this)" class="button add-lsi-row <?php echo $id;?>" data-id="<?php echo $id;?>" style="margin-bottom:10px;"><?php _e( 'Add Icon', 'lsi' ); ?></button>
 		</ul>
 
 		<script>
@@ -326,6 +324,7 @@ class lsi_Widget extends WP_Widget {
 		$instance['alignment'] = strip_tags( $new_instance['alignment'] );
 		$instance['tooltip'] = ( isset( $new_instance['tooltip'] ) ) ? strip_tags( $new_instance['tooltip'] ) : '';
 		$count = 0;
+
 		foreach ( $options as $option ) {
 
 			$input = 'input' . $count++;
