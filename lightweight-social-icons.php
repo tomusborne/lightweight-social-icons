@@ -13,12 +13,12 @@ Text Domain: lightweight-social-icons
 
 define( 'LSI_VERSION', 1.0 );
 
+add_action( 'plugins_loaded', 'lsi_load_textdomain' );
 /**
  * Load plugin textdomain.
  *
  * @since 0.1
  */
-add_action( 'plugins_loaded', 'lsi_load_textdomain' );
 function lsi_load_textdomain() {
   load_plugin_textdomain( 'lightweight-social-icons' );
 }
