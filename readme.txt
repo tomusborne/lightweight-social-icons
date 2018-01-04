@@ -147,7 +147,6 @@ It allows you to add the widget to an arbitrary widget area, and then you can ca
 * Fix compatibility error with Site Origin Page Builder
 * Fix color picker labels
 * Use flexbox for admin controls
-* Adjust CSS to remove !important
 
 = 0.9 =
 * Fix a couple stray PHP notices
