@@ -4,7 +4,7 @@ Donate link: https://generatepress.com/ongoing-development
 Tags: social icons, social media, social networking, social profiles, social icon widget
 Requires at least: 4.5
 Tested up to: 4.9
-Stable tag: 1.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -141,6 +141,9 @@ It allows you to add the widget to an arbitrary widget area, and then you can ca
 
 == Changelog ==
 
+= 1.0.1 =
+* Fix styling issue with themes that don't add widget ID
+
 = 1.0 =
 * Code cleanup
 * Fix widget controls in the Customizer
@@ -206,6 +209,9 @@ It allows you to add the widget to an arbitrary widget area, and then you can ca
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.0.1 =
+* Fix styling issue with themes that don't add widget ID
 
 = 1.0 =
 * Code cleanup
