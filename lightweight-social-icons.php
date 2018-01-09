@@ -119,16 +119,16 @@ class lsi_Widget extends WP_Widget {
 			);
 		}
 
-		$css = "#{$unique_id} .icon-set-{$unique_id} a,
-			#{$unique_id} .icon-set-{$unique_id} a:visited,
-			#{$unique_id} .icon-set-{$unique_id} a:focus {
+		$css = ".icon-set-{$unique_id} a,
+			.icon-set-{$unique_id} a:visited,
+			.icon-set-{$unique_id} a:focus {
 				border-radius: {$border_radius}px;
 				background: {$background} !important;
 				color: {$color} !important;
 				font-size: {$font_size}px !important;
 			}
 
-			#{$unique_id} .icon-set-{$unique_id} a:hover {
+			.icon-set-{$unique_id} a:hover {
 				background: {$background_hover} !important;
 				color: {$color_hover} !important;
 			}";
