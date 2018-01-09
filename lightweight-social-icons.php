@@ -11,7 +11,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: lightweight-social-icons
 */
 
-define( 'LSI_VERSION', 1.0.1 );
+define( 'LSI_VERSION', '1.0.1' );
 
 add_action( 'plugins_loaded', 'lsi_load_textdomain' );
 /**
