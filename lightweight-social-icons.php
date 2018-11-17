@@ -92,7 +92,7 @@ class lsi_Widget extends WP_Widget {
 				}
 
 				$show_tooltip = ( ! empty( $tooltip ) ) ? 'tooltip' : '';
-				$rel_attribute = apply_filters( 'lsi_icon_rel_attribute','rel="nofollow"' );
+				$rel_attribute = apply_filters( 'lsi_icon_rel_attribute','rel="nofollow noopener"' );
 				$title_attribute = apply_filters( 'lsi_icon_title_attribute','title="' . $options[$name]['name'] . '"' );
 				$accessibility = apply_filters( 'lsi_icon_aria_attribute','aria-label="' . $options[$name]['name'] . '"' );
 
