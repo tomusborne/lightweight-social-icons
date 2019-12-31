@@ -3,8 +3,8 @@ Contributors: edge22
 Donate link: https://generatepress.com/ongoing-development
 Tags: social icons, social media, social networking, social profiles, social icon widget
 Requires at least: 4.5
-Tested up to: 4.9
-Stable tag: 1.0.1
+Tested up to: 5.3.2
+Stable tag: 2.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -80,6 +80,9 @@ Check out GeneratePress, our awesome WordPress theme! (http://wordpress.org/them
 * Houzz
 * Mixcloud
 * Last.fm
+* Telegram
+* Wikipedia
+* Whatsapps
 
 == Installation ==
 
@@ -140,6 +143,12 @@ It allows you to add the widget to an arbitrary widget area, and then you can ca
 3. Icons with a different color.
 
 == Changelog ==
+
+= 2.0.0 =
+* Changed to svg icons
+* Added Telegram,Wikipedia and Whatsapps
+* Dinamicaly creates svg sprites and css files 
+
 
 = 1.0.1 =
 * Fix styling issue with themes that don't add widget ID
