@@ -3,7 +3,7 @@
 Plugin Name: Lightweight Social Icons
 Plugin URI: http://generatepress.com/lightweight-social-icons
 Description: Add simple icon font social media buttons. Choose the order, colors, size and more for 42 different icons!
-Version: 1.0.1
+Version: 2.0.0
 Author: Thomas Usborne
 Author URI: http://edge22.com
 License: GNU General Public License v2 or later
@@ -11,7 +11,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: lightweight-social-icons
 */
 
-define( 'LSI_VERSION', '1.0.1' );
+define( 'LSI_VERSION', '2.0.0' );
 
 add_action( 'plugins_loaded', 'lsi_load_textdomain' );
 /**
@@ -24,6 +24,14 @@ function lsi_load_textdomain() {
 }
 
 class lsi_Widget extends WP_Widget {
+
+	/**
+    * Control if widget is loaded more
+    * than one times
+    * @since 1.0.1
+    */
+
+	private $loaded = false;
 
 	/**
 	 * Register the widget.
@@ -92,12 +100,12 @@ class lsi_Widget extends WP_Widget {
 				}
 
 				$show_tooltip = ( ! empty( $tooltip ) ) ? 'tooltip' : '';
-				$rel_attribute = apply_filters( 'lsi_icon_rel_attribute','rel="nofollow"' );
+				$rel_attribute = apply_filters( 'lsi_icon_rel_attribute','rel="nofollow noopener noreferrer"' );
 				$title_attribute = apply_filters( 'lsi_icon_title_attribute','title="' . $options[$name]['name'] . '"' );
 				$accessibility = apply_filters( 'lsi_icon_aria_attribute','aria-label="' . $options[$name]['name'] . '"' );
 
 				$output .= sprintf(
-					'<li class="lsi-social-%3$s"><a class="%4$s" %5$s %6$s %7$s href="%1$s" %2$s><i class="lsicon lsicon-%3$s"></i></a></li>',
+					'<li class="lsi-social-%3$s"><a class="%4$s" %5$s %6$s %7$s href="%1$s" %2$s><svg class="lsicon lsicon-%3$s" role="img" aria-hidden="true"> <use xlink:href="#lsicon-%3$s"></use> </svg></a></li>',
 					$the_value,
 					'email' == $name ? '' : $new_window,
 					$name,
@@ -134,7 +142,16 @@ class lsi_Widget extends WP_Widget {
 			}";
 
 		wp_enqueue_style( 'lsi-style', plugin_dir_url( __FILE__ ) . 'css/style-min.css', array(), LSI_VERSION, 'all' );
-		wp_add_inline_style( 'lsi-style', $css, 99 );
+		wp_add_inline_style( 'lsi-style', $css, 0 );
+		
+		// Inject the svg sprite
+
+		if ( is_active_widget( false, false, $this->id_base, true ) ) {
+			if (!$this->loaded){
+ 			echo file_get_contents( plugin_dir_path( __FILE__ ) . 'fonts/symbol-defs.svg');
+			$this->loaded = true;
+			}
+		}
 
 		if ( ! empty( $tooltip ) ) {
 			wp_enqueue_script( 'lsi-tooltipster', plugin_dir_url( __FILE__ ) . 'js/jquery.tooltipster.min.js', array( 'jquery' ), LSI_VERSION, true );
@@ -325,6 +342,16 @@ class lsi_Widget extends WP_Widget {
 		$instance['tooltip'] = ( isset( $new_instance['tooltip'] ) ) ? strip_tags( $new_instance['tooltip'] ) : '';
 		$count = 0;
 
+        // Creates the svg sprite file and put the header
+
+		fopen(plugin_dir_path( __FILE__ ) . 'fonts/symbol-defs.svg', "w+");
+		fopen(plugin_dir_path( __FILE__ ) . 'css/style-min.css', "w+");
+		file_put_contents(plugin_dir_path( __FILE__ ) . 'fonts/symbol-defs.svg', file_get_contents(plugin_dir_path( __FILE__ ) . 'fonts/header.def'), FILE_APPEND | LOCK_EX);
+		file_put_contents(plugin_dir_path( __FILE__ ) . 'css/style-min.css', file_get_contents(plugin_dir_path( __FILE__ ) . 'css/icons-min.css'), FILE_APPEND | LOCK_EX);
+		if ('' !== $instance[ 'tooltip' ] ) {
+			file_put_contents(plugin_dir_path( __FILE__ ) . 'css/style-min.css', file_get_contents(plugin_dir_path( __FILE__ ) . 'css/tooltip-min.css'), FILE_APPEND | LOCK_EX);
+		}
+
 		foreach ( $options as $option ) {
 
 			$input = 'input' . $count++;
@@ -346,7 +373,15 @@ class lsi_Widget extends WP_Widget {
 				$instance[$input] = esc_url( $new_instance[$input] );
 			}
 
+			// includes the symbol for each selected icon
+
+			file_put_contents(plugin_dir_path( __FILE__ ) . 'fonts/symbol-defs.svg', file_get_contents(plugin_dir_path( __FILE__ ) . 'fonts/lsicon-'.$instance[$select].'.def'), FILE_APPEND | LOCK_EX);
+
 		}
+
+		// put the footer
+
+		file_put_contents(plugin_dir_path( __FILE__ ) . 'fonts/symbol-defs.svg', file_get_contents(plugin_dir_path( __FILE__ ) . 'fonts/footer.def'), FILE_APPEND | LOCK_EX);
 
 		return $instance;
 	}
@@ -627,7 +662,20 @@ function lsi_icons( $options = '' ) {
 		'yahoo' => array(
 			'id' => 'yahoo',
 			'name' => __( 'Yahoo', 'lightweight-social-icons' )
+		),
+        'telegram' => array(
+            'id' => 'telegram',
+            'name' => __( 'Telegram', 'lightweight-social-icons' )
+        ),
+        'wikipedia' => array(
+            'id' => 'wikipedia',
+            'name' => __( 'Wikipedia', 'lightweight-social-icons' )
+		),
+		'whasapps' => array(
+            'id' => 'whatsapps',
+			'name' => __( 'Whatsapps', 'lightweight-social-icons' )
 		)
+
 	);
 
 
