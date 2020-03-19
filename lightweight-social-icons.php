@@ -96,6 +96,10 @@ class lsi_Widget extends WP_Widget {
 				$title_attribute = apply_filters( 'lsi_icon_title_attribute','title="' . $options[$name]['name'] . '"' );
 				$accessibility = apply_filters( 'lsi_icon_aria_attribute','aria-label="' . $options[$name]['name'] . '"' );
 
+				if ( $new_window && 'email' !== $name ) {
+					$rel_attribute = apply_filters( 'lsi_icon_rel_attribute', 'rel="nofollow noopener noreferrer"' );
+				}
+
 				$output .= sprintf(
 					'<li class="lsi-social-%3$s"><a class="%4$s" %5$s %6$s %7$s href="%1$s" %2$s><i class="lsicon lsicon-%3$s"></i></a></li>',
 					$the_value,
