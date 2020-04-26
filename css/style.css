@@ -1,5 +1,6 @@
 @font-face {
   font-family: 'lsi-fontello';
+  font-display: auto;
   src: url('../fonts/fontello.eot');
   src: url('../fonts/fontello.eot#iefix') format('embedded-opentype'),
        url('../fonts/fontello.woff') format('woff'),
